@@ -18,6 +18,10 @@
 		A308D5572260C0EB0036BC13 /* BeanRegistryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D5562260C0EB0036BC13 /* BeanRegistryTests.swift */; };
 		A308D55A2260CB400036BC13 /* Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D5592260CB400036BC13 /* Kind.swift */; };
 		A308D55C2260DA310036BC13 /* BeanDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D55B2260DA310036BC13 /* BeanDefinition.swift */; };
+		A308D55E2260E0D80036BC13 /* Dsl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D55D2260E0D80036BC13 /* Dsl.swift */; };
+		A308D5602260E4110036BC13 /* DefinitionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D55F2260E4110036BC13 /* DefinitionFactory.swift */; };
+		A308D5622260E7BD0036BC13 /* ModuleDeclaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D5612260E7BD0036BC13 /* ModuleDeclaration.swift */; };
+		A308D5642260E7E50036BC13 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D5632260E7E50036BC13 /* Module.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,10 @@
 		A308D5562260C0EB0036BC13 /* BeanRegistryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeanRegistryTests.swift; sourceTree = "<group>"; };
 		A308D5592260CB400036BC13 /* Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Kind.swift; path = "../../../Koin-Swift/Koin-Swift/Koin-Swift/Kind.swift"; sourceTree = "<group>"; };
 		A308D55B2260DA310036BC13 /* BeanDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeanDefinition.swift; path = "../../../Koin-Swift/Koin-Swift/Koin-SwiftTests/BeanDefinition.swift"; sourceTree = "<group>"; };
+		A308D55D2260E0D80036BC13 /* Dsl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dsl.swift; path = "../../../Koin-Swift/Koin-Swift/Koin-Swift/Dsl.swift"; sourceTree = "<group>"; };
+		A308D55F2260E4110036BC13 /* DefinitionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionFactory.swift; sourceTree = "<group>"; };
+		A308D5612260E7BD0036BC13 /* ModuleDeclaration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleDeclaration.swift; sourceTree = "<group>"; };
+		A308D5632260E7E50036BC13 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,9 +98,13 @@
 				A308D54A2260C09E0036BC13 /* BeanDefinition.swift */,
 				A308D54B2260C09E0036BC13 /* BeanRegistry.swift */,
 				A308D54F2260C09F0036BC13 /* Definition.swift */,
+				A308D55F2260E4110036BC13 /* DefinitionFactory.swift */,
+				A308D55D2260E0D80036BC13 /* Dsl.swift */,
 				A308D5592260CB400036BC13 /* Kind.swift */,
 				A308D54D2260C09E0036BC13 /* Koin.swift */,
 				A308D54E2260C09F0036BC13 /* KoinErrors.swift */,
+				A308D5632260E7E50036BC13 /* Module.swift */,
+				A308D5612260E7BD0036BC13 /* ModuleDeclaration.swift */,
 				A308D54C2260C09E0036BC13 /* Qualifier.swift */,
 				A308D5332260BFFE0036BC13 /* Koin_Swift.h */,
 				A308D5342260BFFE0036BC13 /* Info.plist */,
@@ -219,13 +231,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A308D5622260E7BD0036BC13 /* ModuleDeclaration.swift in Sources */,
 				A308D5512260C09F0036BC13 /* BeanRegistry.swift in Sources */,
+				A308D5602260E4110036BC13 /* DefinitionFactory.swift in Sources */,
 				A308D55A2260CB400036BC13 /* Kind.swift in Sources */,
 				A308D5522260C09F0036BC13 /* Qualifier.swift in Sources */,
 				A308D5532260C09F0036BC13 /* Koin.swift in Sources */,
 				A308D5502260C09F0036BC13 /* BeanDefinition.swift in Sources */,
 				A308D5552260C09F0036BC13 /* Definition.swift in Sources */,
 				A308D5542260C09F0036BC13 /* KoinErrors.swift in Sources */,
+				A308D5642260E7E50036BC13 /* Module.swift in Sources */,
+				A308D55E2260E0D80036BC13 /* Dsl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

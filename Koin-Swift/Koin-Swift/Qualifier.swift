@@ -8,4 +8,4 @@
 
 import Foundation
 
-typealias Qualifier = String
+public typealias Qualifier = String

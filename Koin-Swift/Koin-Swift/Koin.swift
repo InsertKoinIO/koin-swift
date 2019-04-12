@@ -8,20 +8,20 @@
 
 import Foundation
 
-protocol Koin {
+public protocol KoinInjectable {
     func get<T>(qualifier: Qualifier?) throws -> T
 }
 
-public class KoinApplication : Koin {
+public class KoinApplication : KoinInjectable {
     static let shared = KoinApplication()
     private let beanRegistry = BeanRegistry()
     
-    func get<T>(qualifier: Qualifier? = nil) throws -> T {
+    public func get<T>(qualifier: Qualifier? = nil) throws -> T {
         let definition : BeanDefinition<T> = try beanRegistry.retrieveDefinition()
         return try definition.resolveInstance(koin: self)
     }
-}
-
-public func get<T>() throws -> T {
-    return try KoinApplication.shared.get()
+    
+    func insert(definition: AnyHashable) throws {
+        try beanRegistry.insertDefinition(definition: definition)
+    }
 }

@@ -12,7 +12,7 @@ class BeanRegistry {
 
     var definitions: Set<AnyHashable> = []
     
-    func insertDefinition<T>(definition: BeanDefinition<T>) throws {
+    func insertDefinition(definition: AnyHashable) throws {
         let (state, _) = definitions.insert(definition)
         guard state else {
             throw KoinErrors.AlreadyDefined

@@ -1,5 +1,5 @@
 //
-//  Definition.swift
+//  Module.swift
 //  Koin-Swift
 //
 //  Created by DE NADAI Julien on 12/04/2019.
@@ -8,4 +8,6 @@
 
 import Foundation
 
-public typealias Definition<T> = (KoinInjectable) throws -> T
+public class Module {
+    var definitions: [AnyHashable] = []
+}

@@ -1,5 +1,5 @@
 //
-//  Definition.swift
+//  ModuleDeclaration.swift
 //  Koin-Swift
 //
 //  Created by DE NADAI Julien on 12/04/2019.
@@ -8,4 +8,4 @@
 
 import Foundation
 
-public typealias Definition<T> = (KoinInjectable) throws -> T
+public typealias ModuleDeclaration = (Module) -> Void

@@ -21,14 +21,14 @@ class BeanDefinition<T> : Hashable {
         self.kind = kind
     }
     
-    func resolveInstance(koin: Koin) throws -> T {
+    func resolveInstance(koin: KoinInjectable) throws -> T {
         switch(kind) {
         case .Factory: return try definition(koin)
         case .Single: return try single(koin: koin)
         }
     }
     
-    func single(koin: Koin) throws -> T {
+    func single(koin: KoinInjectable) throws -> T {
         if let instance = instance {
             return instance
         } else {
