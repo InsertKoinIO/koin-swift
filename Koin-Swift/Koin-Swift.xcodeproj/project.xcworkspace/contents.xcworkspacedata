@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "absolute:/Users/itudenj/dev/private/koin-swift/Koin-Swift/Koin-Swift.xcodeproj">
+      location = "self:Koin-Swift.xcodeproj">
    </FileRef>
 </Workspace>
