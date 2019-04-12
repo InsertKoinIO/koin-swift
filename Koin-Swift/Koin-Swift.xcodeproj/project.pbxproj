@@ -8,8 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		A308D53A2260BFFF0036BC13 /* Koin_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A308D5302260BFFE0036BC13 /* Koin_Swift.framework */; };
-		A308D53F2260BFFF0036BC13 /* Koin_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D53E2260BFFF0036BC13 /* Koin_SwiftTests.swift */; };
 		A308D5412260BFFF0036BC13 /* Koin_Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = A308D5332260BFFE0036BC13 /* Koin_Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A308D5502260C09F0036BC13 /* BeanDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D54A2260C09E0036BC13 /* BeanDefinition.swift */; };
+		A308D5512260C09F0036BC13 /* BeanRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D54B2260C09E0036BC13 /* BeanRegistry.swift */; };
+		A308D5522260C09F0036BC13 /* Qualifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D54C2260C09E0036BC13 /* Qualifier.swift */; };
+		A308D5532260C09F0036BC13 /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D54D2260C09E0036BC13 /* Koin.swift */; };
+		A308D5542260C09F0036BC13 /* KoinErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D54E2260C09F0036BC13 /* KoinErrors.swift */; };
+		A308D5552260C09F0036BC13 /* Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D54F2260C09F0036BC13 /* Definition.swift */; };
+		A308D5572260C0EB0036BC13 /* BeanRegistryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D5562260C0EB0036BC13 /* BeanRegistryTests.swift */; };
+		A308D55A2260CB400036BC13 /* Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D5592260CB400036BC13 /* Kind.swift */; };
+		A308D55C2260DA310036BC13 /* BeanDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D55B2260DA310036BC13 /* BeanDefinition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +35,16 @@
 		A308D5332260BFFE0036BC13 /* Koin_Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Koin_Swift.h; sourceTree = "<group>"; };
 		A308D5342260BFFE0036BC13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A308D5392260BFFF0036BC13 /* Koin-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Koin-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A308D53E2260BFFF0036BC13 /* Koin_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin_SwiftTests.swift; sourceTree = "<group>"; };
 		A308D5402260BFFF0036BC13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A308D54A2260C09E0036BC13 /* BeanDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeanDefinition.swift; sourceTree = "<group>"; };
+		A308D54B2260C09E0036BC13 /* BeanRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeanRegistry.swift; sourceTree = "<group>"; };
+		A308D54C2260C09E0036BC13 /* Qualifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Qualifier.swift; sourceTree = "<group>"; };
+		A308D54D2260C09E0036BC13 /* Koin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
+		A308D54E2260C09F0036BC13 /* KoinErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KoinErrors.swift; sourceTree = "<group>"; };
+		A308D54F2260C09F0036BC13 /* Definition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
+		A308D5562260C0EB0036BC13 /* BeanRegistryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeanRegistryTests.swift; sourceTree = "<group>"; };
+		A308D5592260CB400036BC13 /* Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Kind.swift; path = "../../../Koin-Swift/Koin-Swift/Koin-Swift/Kind.swift"; sourceTree = "<group>"; };
+		A308D55B2260DA310036BC13 /* BeanDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeanDefinition.swift; path = "../../../Koin-Swift/Koin-Swift/Koin-SwiftTests/BeanDefinition.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +87,13 @@
 		A308D5322260BFFE0036BC13 /* Koin-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				A308D54A2260C09E0036BC13 /* BeanDefinition.swift */,
+				A308D54B2260C09E0036BC13 /* BeanRegistry.swift */,
+				A308D54F2260C09F0036BC13 /* Definition.swift */,
+				A308D5592260CB400036BC13 /* Kind.swift */,
+				A308D54D2260C09E0036BC13 /* Koin.swift */,
+				A308D54E2260C09F0036BC13 /* KoinErrors.swift */,
+				A308D54C2260C09E0036BC13 /* Qualifier.swift */,
 				A308D5332260BFFE0036BC13 /* Koin_Swift.h */,
 				A308D5342260BFFE0036BC13 /* Info.plist */,
 			);
@@ -80,7 +103,8 @@
 		A308D53D2260BFFF0036BC13 /* Koin-SwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				A308D53E2260BFFF0036BC13 /* Koin_SwiftTests.swift */,
+				A308D55B2260DA310036BC13 /* BeanDefinition.swift */,
+				A308D5562260C0EB0036BC13 /* BeanRegistryTests.swift */,
 				A308D5402260BFFF0036BC13 /* Info.plist */,
 			);
 			path = "Koin-SwiftTests";
@@ -148,6 +172,7 @@
 				TargetAttributes = {
 					A308D52F2260BFFE0036BC13 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					A308D5382260BFFF0036BC13 = {
 						CreatedOnToolsVersion = 10.1;
@@ -194,6 +219,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A308D5512260C09F0036BC13 /* BeanRegistry.swift in Sources */,
+				A308D55A2260CB400036BC13 /* Kind.swift in Sources */,
+				A308D5522260C09F0036BC13 /* Qualifier.swift in Sources */,
+				A308D5532260C09F0036BC13 /* Koin.swift in Sources */,
+				A308D5502260C09F0036BC13 /* BeanDefinition.swift in Sources */,
+				A308D5552260C09F0036BC13 /* Definition.swift in Sources */,
+				A308D5542260C09F0036BC13 /* KoinErrors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +233,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A308D53F2260BFFF0036BC13 /* Koin_SwiftTests.swift in Sources */,
+				A308D55C2260DA310036BC13 /* BeanDefinition.swift in Sources */,
+				A308D5572260C0EB0036BC13 /* BeanRegistryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +374,7 @@
 		A308D5452260BFFF0036BC13 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -357,6 +391,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.insertkoin.Koin-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -365,6 +400,7 @@
 		A308D5462260BFFF0036BC13 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -389,6 +425,7 @@
 		A308D5482260BFFF0036BC13 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Koin-SwiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -406,6 +443,7 @@
 		A308D5492260BFFF0036BC13 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Koin-SwiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
