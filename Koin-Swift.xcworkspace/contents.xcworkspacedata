@@ -4,4 +4,7 @@
    <FileRef
       location = "absolute:/Users/itudenj/dev/private/koin-swift/Koin-Swift/Koin-Swift.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Koin-Sample/Koin-Sample.xcodeproj">
+   </FileRef>
 </Workspace>
