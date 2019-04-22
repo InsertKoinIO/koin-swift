@@ -22,6 +22,7 @@
 		A308D5602260E4110036BC13 /* DefinitionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D55F2260E4110036BC13 /* DefinitionFactory.swift */; };
 		A308D5622260E7BD0036BC13 /* ModuleDeclaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D5612260E7BD0036BC13 /* ModuleDeclaration.swift */; };
 		A308D5642260E7E50036BC13 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D5632260E7E50036BC13 /* Module.swift */; };
+		A3726E38226E2234003BF43E /* KoinInjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3726E37226E2234003BF43E /* KoinInjectable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A308D52F2260BFFE0036BC13;
 			remoteInfo = "Koin-Swift";
+		};
+		A3726E66226E2618003BF43E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3726E62226E2618003BF43E /* Koin-Sample.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A3726E4B226E2613003BF43E;
+			remoteInfo = "Koin-Sample";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -47,12 +55,14 @@
 		A308D54E2260C09F0036BC13 /* KoinErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KoinErrors.swift; sourceTree = "<group>"; };
 		A308D54F2260C09F0036BC13 /* Definition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
 		A308D5562260C0EB0036BC13 /* BeanRegistryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeanRegistryTests.swift; sourceTree = "<group>"; };
-		A308D5592260CB400036BC13 /* Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Kind.swift; path = "../../../Koin-Swift/Koin-Swift/Koin-Swift/Kind.swift"; sourceTree = "<group>"; };
+		A308D5592260CB400036BC13 /* Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kind.swift; sourceTree = "<group>"; };
 		A308D55B2260DA310036BC13 /* BeanDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeanDefinition.swift; path = "../../../Koin-Swift/Koin-Swift/Koin-SwiftTests/BeanDefinition.swift"; sourceTree = "<group>"; };
-		A308D55D2260E0D80036BC13 /* Dsl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dsl.swift; path = "../../../Koin-Swift/Koin-Swift/Koin-Swift/Dsl.swift"; sourceTree = "<group>"; };
+		A308D55D2260E0D80036BC13 /* Dsl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dsl.swift; sourceTree = "<group>"; };
 		A308D55F2260E4110036BC13 /* DefinitionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionFactory.swift; sourceTree = "<group>"; };
 		A308D5612260E7BD0036BC13 /* ModuleDeclaration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleDeclaration.swift; sourceTree = "<group>"; };
 		A308D5632260E7E50036BC13 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		A3726E37226E2234003BF43E /* KoinInjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoinInjectable.swift; sourceTree = "<group>"; };
+		A3726E62226E2618003BF43E /* Koin-Sample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Koin-Sample.xcodeproj"; path = "../../Koin-Swift/Koin-Sample/Koin-Sample.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +87,7 @@
 		A308D5262260BFFE0036BC13 = {
 			isa = PBXGroup;
 			children = (
+				A3726E62226E2618003BF43E /* Koin-Sample.xcodeproj */,
 				A308D5322260BFFE0036BC13 /* Koin-Swift */,
 				A308D53D2260BFFF0036BC13 /* Koin-SwiftTests */,
 				A308D5312260BFFE0036BC13 /* Products */,
@@ -95,17 +106,10 @@
 		A308D5322260BFFE0036BC13 /* Koin-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				A308D54A2260C09E0036BC13 /* BeanDefinition.swift */,
-				A308D54B2260C09E0036BC13 /* BeanRegistry.swift */,
-				A308D54F2260C09F0036BC13 /* Definition.swift */,
-				A308D55F2260E4110036BC13 /* DefinitionFactory.swift */,
+				A3726E39226E2288003BF43E /* Core */,
 				A308D55D2260E0D80036BC13 /* Dsl.swift */,
-				A308D5592260CB400036BC13 /* Kind.swift */,
 				A308D54D2260C09E0036BC13 /* Koin.swift */,
-				A308D54E2260C09F0036BC13 /* KoinErrors.swift */,
-				A308D5632260E7E50036BC13 /* Module.swift */,
-				A308D5612260E7BD0036BC13 /* ModuleDeclaration.swift */,
-				A308D54C2260C09E0036BC13 /* Qualifier.swift */,
+				A3726E37226E2234003BF43E /* KoinInjectable.swift */,
 				A308D5332260BFFE0036BC13 /* Koin_Swift.h */,
 				A308D5342260BFFE0036BC13 /* Info.plist */,
 			);
@@ -120,6 +124,71 @@
 				A308D5402260BFFF0036BC13 /* Info.plist */,
 			);
 			path = "Koin-SwiftTests";
+			sourceTree = "<group>";
+		};
+		A3726E39226E2288003BF43E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A3726E3A226E2292003BF43E /* Definition */,
+				A3726E3B226E22A6003BF43E /* Error */,
+				A3726E41226E24CA003BF43E /* Module */,
+				A3726E40226E24B7003BF43E /* Qualifier */,
+				A3726E3E226E2311003BF43E /* Registry */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A3726E3A226E2292003BF43E /* Definition */ = {
+			isa = PBXGroup;
+			children = (
+				A308D54A2260C09E0036BC13 /* BeanDefinition.swift */,
+				A308D54F2260C09F0036BC13 /* Definition.swift */,
+				A308D55F2260E4110036BC13 /* DefinitionFactory.swift */,
+				A308D5592260CB400036BC13 /* Kind.swift */,
+			);
+			path = Definition;
+			sourceTree = "<group>";
+		};
+		A3726E3B226E22A6003BF43E /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				A308D54E2260C09F0036BC13 /* KoinErrors.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		A3726E3E226E2311003BF43E /* Registry */ = {
+			isa = PBXGroup;
+			children = (
+				A308D54B2260C09E0036BC13 /* BeanRegistry.swift */,
+			);
+			path = Registry;
+			sourceTree = "<group>";
+		};
+		A3726E40226E24B7003BF43E /* Qualifier */ = {
+			isa = PBXGroup;
+			children = (
+				A308D54C2260C09E0036BC13 /* Qualifier.swift */,
+			);
+			path = Qualifier;
+			sourceTree = "<group>";
+		};
+		A3726E41226E24CA003BF43E /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				A308D5632260E7E50036BC13 /* Module.swift */,
+				A308D5612260E7BD0036BC13 /* ModuleDeclaration.swift */,
+			);
+			name = Module;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		A3726E63226E2618003BF43E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3726E67226E2618003BF43E /* Koin-Sample.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +270,12 @@
 			mainGroup = A308D5262260BFFE0036BC13;
 			productRefGroup = A308D5312260BFFE0036BC13 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A3726E63226E2618003BF43E /* Products */;
+					ProjectRef = A3726E62226E2618003BF43E /* Koin-Sample.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A308D52F2260BFFE0036BC13 /* Koin-Swift */,
@@ -208,6 +283,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A3726E67226E2618003BF43E /* Koin-Sample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Koin-Sample.app";
+			remoteRef = A3726E66226E2618003BF43E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A308D52E2260BFFE0036BC13 /* Resources */ = {
@@ -240,6 +325,7 @@
 				A308D5502260C09F0036BC13 /* BeanDefinition.swift in Sources */,
 				A308D5552260C09F0036BC13 /* Definition.swift in Sources */,
 				A308D5542260C09F0036BC13 /* KoinErrors.swift in Sources */,
+				A3726E38226E2234003BF43E /* KoinInjectable.swift in Sources */,
 				A308D5642260E7E50036BC13 /* Module.swift in Sources */,
 				A308D55E2260E0D80036BC13 /* Dsl.swift in Sources */,
 			);

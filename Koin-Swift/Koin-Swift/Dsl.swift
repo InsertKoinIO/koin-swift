@@ -3,7 +3,7 @@
 //  Koin-Swift
 //
 //  Created by DE NADAI Julien on 12/04/2019.
-//  Copyright © 2019 Julien De Nadai. All rights reserved.
+//  Copyright © 2019 insertkoin.io. All rights reserved.
 //
 
 import Foundation
@@ -30,11 +30,11 @@ public func module(_ closure: ModuleDeclaration) -> Module {
 public func registerKoinModule(_ modules: Module...) throws {
     try modules.forEach({ module throws in
         try module.definitions.forEach({ definition throws in
-            try KoinApplication.shared.insert(definition: definition)
+            try Koin.shared.insert(definition: definition)
         })
     })
 }
 
-public func inject<T>() throws -> T {
-    return try KoinApplication.shared.get()
+public func inject<T>(withQualifier: Qualifier? = nil) throws -> T {
+    return try Koin.shared.get(withQualifier: withQualifier)
 }

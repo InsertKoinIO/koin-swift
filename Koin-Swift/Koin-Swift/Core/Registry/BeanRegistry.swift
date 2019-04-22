@@ -3,7 +3,7 @@
 //  Koin-Swift
 //
 //  Created by DE NADAI Julien on 12/04/2019.
-//  Copyright © 2019 Julien De Nadai. All rights reserved.
+//  Copyright © 2019 insertkoin.io. All rights reserved.
 //
 
 import Foundation
@@ -19,12 +19,12 @@ class BeanRegistry {
         }
     }
     
-    func retrieveDefinition<T>(qualifier: Qualifier? = nil) throws -> BeanDefinition<T> {
+    func retrieveDefinition<T>(withQualifier: Qualifier? = nil) throws -> BeanDefinition<T> {
         guard let definition = definitions.first(where: {(definition) -> Bool in
             guard let base = definition.base as? BeanDefinition<T> else {
                 return false
             }
-            return base.qualifier == qualifier
+            return base.qualifier == withQualifier
         }) else {
             throw KoinErrors.DefinitionNotFound
         }
