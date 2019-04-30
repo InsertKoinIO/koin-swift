@@ -5,9 +5,6 @@
       location = "group:KoinSwift/KoinSwift.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Koin-Swift/Koin-Swift.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Koin-Sample/Koin-Sample.xcodeproj">
+      location = "group:/Users/itudenj/dev/private/Koin-Swift/Koin-Sample/KoinSample.xcodeproj">
    </FileRef>
 </Workspace>
