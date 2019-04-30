@@ -37,7 +37,7 @@ class BeanRegistryTests: XCTestCase {
         beanRegistry.definitions.insert(AnyHashable(def1))
         beanRegistry.definitions.insert(AnyHashable(def2))
         
-        let definition : BeanDefinition<String> = try! beanRegistry.retrieveDefinition(qualifier: "withQualifier")
+        let definition : BeanDefinition<String> = try! beanRegistry.retrieveDefinition(withQualifier: "withQualifier")
         XCTAssertEqual(definition, def2, "")
     }
     

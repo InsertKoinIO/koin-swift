@@ -12,4 +12,6 @@ public enum KoinErrors : Error {
     case NotImplementedYet
     case DefinitionNotFound
     case AlreadyDefined
+    case AlreadyInitialized
+    case NotInitialized
 }

@@ -8,21 +8,29 @@
 
 import Foundation
 
-public class Koin : KoinInjectable {
-    static let shared = Koin()
-    private let beanRegistry = BeanRegistry()
+class Koin : KoinInjectable {
+
+    let beanRegistry = BeanRegistry()
     
-    public func get<T>() throws -> T {
+    func get<T>() throws -> T {
         let definition : BeanDefinition<T> = try beanRegistry.retrieveDefinition()
         return try definition.resolveInstance(koin: self)
     }
     
-    public func get<T>(withQualifier: Qualifier? = nil) throws -> T {
+    func get<T>(withQualifier: Qualifier? = nil) throws -> T {
         let definition : BeanDefinition<T> = try beanRegistry.retrieveDefinition(withQualifier: withQualifier)
         return try definition.resolveInstance(koin: self)
     }
     
     func insert(definition: AnyHashable) throws {
         try beanRegistry.insertDefinition(definition: definition)
+    }
+    
+    func apply(with config: KoinConfig) throws {
+        try config.modules.forEach { module in
+            try module.definitions.forEach { definition in
+                try insert(definition: definition)
+            }
+        }
     }
 }

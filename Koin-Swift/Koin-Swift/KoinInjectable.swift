@@ -8,16 +8,15 @@
 
 import Foundation
 
-public protocol KoinInjectable {
-    func get<T>() throws -> T
-    func get<T>(withQualifier: Qualifier?) throws -> T
-}
+public protocol KoinInjectable {}
 
-extension KoinInjectable {
-    func get<T>() throws -> T {
-        return try Koin.shared.get()
-    }
-    func get<T>(withQualifier: Qualifier?) throws -> T {
-        return try Koin.shared.get(withQualifier: withQualifier)
+public extension KoinInjectable {
+    
+    
+    public func get<T>(withQualifier: Qualifier? = nil) throws -> T {
+        guard let koin = GlobalContext.shared.app else {
+            throw KoinErrors.NotInitialized
+        }
+        return try koin.get(withQualifier: withQualifier)
     }
 }

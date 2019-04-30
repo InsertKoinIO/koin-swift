@@ -20,11 +20,16 @@ class BeanRegistry {
     }
     
     func retrieveDefinition<T>(withQualifier: Qualifier? = nil) throws -> BeanDefinition<T> {
-        guard let definition = definitions.first(where: {(definition) -> Bool in
+        guard let definition = definitions.first(where: { (definition) -> Bool in
             guard let base = definition.base as? BeanDefinition<T> else {
                 return false
             }
-            return base.qualifier == withQualifier
+            if (withQualifier != nil) {
+                return base.qualifier == withQualifier
+            } else {
+                return true
+            }
+            
         }) else {
             throw KoinErrors.DefinitionNotFound
         }

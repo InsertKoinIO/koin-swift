@@ -22,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
         
-        try! registerKoinModule(masterModule)
+        try! startKoin {
+            $0.modules(masterModule)
+        }
         
         return true
     }

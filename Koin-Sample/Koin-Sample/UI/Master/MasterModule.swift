@@ -10,8 +10,8 @@ import Foundation
 import Koin_Swift
 
 let masterModule = module {
-    $0.factory {
-        return MasterPresenterImpl(try $0.get()) as MasterPresenter
+    $0.factory { i -> MasterPresenter in
+        return MasterPresenterImpl(try i.get())
     }
     
     $0.single { _ -> DataProvider in

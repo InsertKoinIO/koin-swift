@@ -22,6 +22,9 @@
 		A308D5602260E4110036BC13 /* DefinitionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D55F2260E4110036BC13 /* DefinitionFactory.swift */; };
 		A308D5622260E7BD0036BC13 /* ModuleDeclaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D5612260E7BD0036BC13 /* ModuleDeclaration.swift */; };
 		A308D5642260E7E50036BC13 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308D5632260E7E50036BC13 /* Module.swift */; };
+		A3465F35227838F100825C66 /* GlobalContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3465F34227838F100825C66 /* GlobalContext.swift */; };
+		A3465F3A22783F1800825C66 /* KoinConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3465F3922783F1800825C66 /* KoinConfig.swift */; };
+		A3465F3C2278404E00825C66 /* ModuleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3465F3B2278404E00825C66 /* ModuleExt.swift */; };
 		A3726E38226E2234003BF43E /* KoinInjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3726E37226E2234003BF43E /* KoinInjectable.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +64,9 @@
 		A308D55F2260E4110036BC13 /* DefinitionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionFactory.swift; sourceTree = "<group>"; };
 		A308D5612260E7BD0036BC13 /* ModuleDeclaration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleDeclaration.swift; sourceTree = "<group>"; };
 		A308D5632260E7E50036BC13 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		A3465F34227838F100825C66 /* GlobalContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GlobalContext.swift; path = "../../../../../Koin-Swift/Koin-Swift/Koin-Swift/Core/Context/GlobalContext.swift"; sourceTree = "<group>"; };
+		A3465F3922783F1800825C66 /* KoinConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KoinConfig.swift; path = "../../../../Koin-Swift/Koin-Swift/Koin-Swift/Dsl/KoinConfig.swift"; sourceTree = "<group>"; };
+		A3465F3B2278404E00825C66 /* ModuleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleExt.swift; sourceTree = "<group>"; };
 		A3726E37226E2234003BF43E /* KoinInjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoinInjectable.swift; sourceTree = "<group>"; };
 		A3726E62226E2618003BF43E /* Koin-Sample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Koin-Sample.xcodeproj"; path = "../../Koin-Swift/Koin-Sample/Koin-Sample.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,8 +112,8 @@
 		A308D5322260BFFE0036BC13 /* Koin-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				A3465F3722783F0B00825C66 /* Dsl */,
 				A3726E39226E2288003BF43E /* Core */,
-				A308D55D2260E0D80036BC13 /* Dsl.swift */,
 				A308D54D2260C09E0036BC13 /* Koin.swift */,
 				A3726E37226E2234003BF43E /* KoinInjectable.swift */,
 				A308D5332260BFFE0036BC13 /* Koin_Swift.h */,
@@ -126,9 +132,28 @@
 			path = "Koin-SwiftTests";
 			sourceTree = "<group>";
 		};
+		A3465F32227838E200825C66 /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				A3465F34227838F100825C66 /* GlobalContext.swift */,
+			);
+			path = Context;
+			sourceTree = "<group>";
+		};
+		A3465F3722783F0B00825C66 /* Dsl */ = {
+			isa = PBXGroup;
+			children = (
+				A308D55D2260E0D80036BC13 /* Dsl.swift */,
+				A3465F3922783F1800825C66 /* KoinConfig.swift */,
+				A3465F3B2278404E00825C66 /* ModuleExt.swift */,
+			);
+			path = Dsl;
+			sourceTree = "<group>";
+		};
 		A3726E39226E2288003BF43E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A3465F32227838E200825C66 /* Context */,
 				A3726E3A226E2292003BF43E /* Definition */,
 				A3726E3B226E22A6003BF43E /* Error */,
 				A3726E41226E24CA003BF43E /* Module */,
@@ -319,6 +344,7 @@
 				A308D5622260E7BD0036BC13 /* ModuleDeclaration.swift in Sources */,
 				A308D5512260C09F0036BC13 /* BeanRegistry.swift in Sources */,
 				A308D5602260E4110036BC13 /* DefinitionFactory.swift in Sources */,
+				A3465F3C2278404E00825C66 /* ModuleExt.swift in Sources */,
 				A308D55A2260CB400036BC13 /* Kind.swift in Sources */,
 				A308D5522260C09F0036BC13 /* Qualifier.swift in Sources */,
 				A308D5532260C09F0036BC13 /* Koin.swift in Sources */,
@@ -326,8 +352,10 @@
 				A308D5552260C09F0036BC13 /* Definition.swift in Sources */,
 				A308D5542260C09F0036BC13 /* KoinErrors.swift in Sources */,
 				A3726E38226E2234003BF43E /* KoinInjectable.swift in Sources */,
+				A3465F3A22783F1800825C66 /* KoinConfig.swift in Sources */,
 				A308D5642260E7E50036BC13 /* Module.swift in Sources */,
 				A308D55E2260E0D80036BC13 /* Dsl.swift in Sources */,
+				A3465F35227838F100825C66 /* GlobalContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

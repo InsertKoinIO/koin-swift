@@ -31,7 +31,7 @@ class BeanDefinitionTests: XCTestCase {
 }
 
 class MockKoin: KoinInjectable {
-    func get<T>(qualifier: Qualifier?) throws -> T {
+    func get<T>(qualifier: Qualifier? = nil) throws -> T {
         throw KoinErrors.NotImplementedYet
     }
 }
