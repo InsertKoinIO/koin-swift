@@ -2,7 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "absolute:/Users/itudenj/dev/private/koin-swift/Koin-Swift/Koin-Swift.xcodeproj">
+      location = "group:KoinSwift/KoinSwift.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Koin-Swift/Koin-Swift.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Koin-Sample/Koin-Sample.xcodeproj">
