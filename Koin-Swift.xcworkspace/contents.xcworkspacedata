@@ -7,4 +7,7 @@
    <FileRef
       location = "group:/Users/itudenj/dev/private/Koin-Swift/Koin-Sample/KoinSample.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:KoinThermosiphon.playground">
+   </FileRef>
 </Workspace>
