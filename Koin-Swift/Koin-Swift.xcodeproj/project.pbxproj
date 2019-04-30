@@ -114,8 +114,6 @@
 			children = (
 				A3465F3722783F0B00825C66 /* Dsl */,
 				A3726E39226E2288003BF43E /* Core */,
-				A308D54D2260C09E0036BC13 /* Koin.swift */,
-				A3726E37226E2234003BF43E /* KoinInjectable.swift */,
 				A308D5332260BFFE0036BC13 /* Koin_Swift.h */,
 				A308D5342260BFFE0036BC13 /* Info.plist */,
 			);
@@ -159,6 +157,8 @@
 				A3726E41226E24CA003BF43E /* Module */,
 				A3726E40226E24B7003BF43E /* Qualifier */,
 				A3726E3E226E2311003BF43E /* Registry */,
+				A308D54D2260C09E0036BC13 /* Koin.swift */,
+				A3726E37226E2234003BF43E /* KoinInjectable.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
