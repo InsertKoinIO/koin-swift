@@ -10,7 +10,7 @@ import Foundation
 
 public class GlobalContext {
     
-    public static let shared: GlobalContext = GlobalContext()
+    static let shared: GlobalContext = GlobalContext()
     
     func start(koin: Koin) throws {
         guard app == nil else {
@@ -19,7 +19,7 @@ public class GlobalContext {
         app = koin
     }
     
-    public func stop() throws {
+    func stop() throws {
         throw KoinErrors.NotImplementedYet
     }
     
