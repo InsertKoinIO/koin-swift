@@ -24,11 +24,7 @@ class BeanRegistry {
             guard let base = definition.base as? BeanDefinition<T> else {
                 return false
             }
-            if (withQualifier != nil) {
-                return base.qualifier == withQualifier
-            } else {
-                return true
-            }
+            return withQualifier == nil || base.qualifier == withQualifier
             
         }) else {
             throw KoinErrors.DefinitionNotFound
