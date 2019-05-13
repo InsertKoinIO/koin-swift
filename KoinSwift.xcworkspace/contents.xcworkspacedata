@@ -5,9 +5,6 @@
       location = "group:KoinSwift/KoinSwift.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:KoinSample/KoinSample.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:KoinThermosiphon.playground">
    </FileRef>
 </Workspace>
