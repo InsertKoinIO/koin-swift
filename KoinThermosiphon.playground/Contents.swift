@@ -1,6 +1,4 @@
-import Cocoa
 import KoinSwift
-
 
 protocol Pump {
     func pump()
