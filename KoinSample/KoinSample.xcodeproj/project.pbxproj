@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A322948D2289A46700BE7A2F /* KoinSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A322948C2289A46700BE7A2F /* KoinSwift.framework */; };
+		A322948E2289A46700BE7A2F /* KoinSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A322948C2289A46700BE7A2F /* KoinSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3726E4F226E2613003BF43E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3726E4E226E2613003BF43E /* AppDelegate.swift */; };
 		A3726E51226E2613003BF43E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3726E50226E2613003BF43E /* MasterViewController.swift */; };
 		A3726E53226E2613003BF43E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3726E52226E2613003BF43E /* DetailViewController.swift */; };
@@ -18,8 +20,6 @@
 		A3726E76226E2BF5003BF43E /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3726E75226E2BF5003BF43E /* DataProvider.swift */; };
 		A3726E78226E2D15003BF43E /* MasterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3726E77226E2D15003BF43E /* MasterModule.swift */; };
 		A3726E7A226E2D9A003BF43E /* DummyDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3726E79226E2D9A003BF43E /* DummyDataProvider.swift */; };
-		A3D0F24E2278728300DB6073 /* KoinSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D0F24D2278728300DB6073 /* KoinSwift.framework */; };
-		A3D0F24F2278728300DB6073 /* KoinSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3D0F24D2278728300DB6073 /* KoinSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,7 +29,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A3D0F24F2278728300DB6073 /* KoinSwift.framework in Embed Frameworks */,
+				A322948E2289A46700BE7A2F /* KoinSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,6 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A322948C2289A46700BE7A2F /* KoinSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KoinSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3726E4B226E2613003BF43E /* KoinSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KoinSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3726E4E226E2613003BF43E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3726E50226E2613003BF43E /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		A3726E75226E2BF5003BF43E /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		A3726E77226E2D15003BF43E /* MasterModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterModule.swift; sourceTree = "<group>"; };
 		A3726E79226E2D9A003BF43E /* DummyDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDataProvider.swift; sourceTree = "<group>"; };
-		A3D0F24D2278728300DB6073 /* KoinSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KoinSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3D0F24E2278728300DB6073 /* KoinSwift.framework in Frameworks */,
+				A322948D2289A46700BE7A2F /* KoinSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +68,7 @@
 		A3726E42226E2613003BF43E = {
 			isa = PBXGroup;
 			children = (
-				A3D0F24D2278728300DB6073 /* KoinSwift.framework */,
+				A322948C2289A46700BE7A2F /* KoinSwift.framework */,
 				A3726E4D226E2613003BF43E /* KoinSample */,
 				A3726E4C226E2613003BF43E /* Products */,
 			);
