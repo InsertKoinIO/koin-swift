@@ -34,3 +34,5 @@ Cartfile.resolved
 fastlane/screenshots/
 fastlane/report.xml
 
+KoinSwift.framework.zip
+
