@@ -1,0 +1,43 @@
+version: 2.1
+jobs:
+  ios_build-and-test:
+    macos:
+      xcode: "10.2.0"
+    shell: /bin/bash --login -o pipefail
+    steps:
+      - checkout
+      - run:
+          name: Build and test iOS
+          command: xcodebuild -workspace KoinSwift.xcworkspace -scheme "KoinSwift iOS" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=12.1' clean build test | xcpretty --color --report junit
+      - store_test_results:
+          path: build/reports/junit.xml
+  macos_build-and-test:
+    macos:
+      xcode: "10.2.0"
+    shell: /bin/bash --login -o pipefail
+    steps:
+      - checkout
+      - run:
+          name: Build and test macOS
+          command: xcodebuild -workspace KoinSwift.xcworkspace -scheme "KoinSwift macOS" -sdk macosx clean build test | xcpretty --color --report junit
+      - store_test_results:
+          path: build/reports/junit.xml
+  tvos_build-and-test:
+    macos:
+      xcode: "10.2.0"
+    shell: /bin/bash --login -o pipefail
+    steps:
+      - checkout
+      - run:
+          name: Build and test tvOS
+          command: xcodebuild -workspace KoinSwift.xcworkspace -scheme "KoinSwift tvOS" -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV,OS=12.1' clean build test | xcpretty --color --report junit
+      - store_test_results:
+          path: build/reports/junit.xml
+
+workflows:
+  version: 2
+  dev_build-and-test:
+    jobs:
+      - ios_build-and-test
+      # - macos_build-and-test
+      # - tvos_build-and-test
