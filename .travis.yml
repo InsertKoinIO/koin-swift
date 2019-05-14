@@ -1,5 +1,33 @@
 language: objective-c
 osx_image: xcode10.2
 xcode_workspace: KoinSwift.xcworkspace
-xcode_scheme: KoinSwift iOS
-xcode_destination: platform=iOS Simulator,name=iPhone 6,OS=12.1
+env:
+  global:
+    - IOS_FRAMEWORK_SCHEME="KoinSwift iOS"
+    - TVOS_FRAMEWORK_SCHEME="KoinSwift tvOS"
+    - MACOS_FRAMEWORK_SCHEME="KoinSwift macOS"
+  matrix:
+    - DESTINATION="platform=iOS Simulator,name=iPhone 6,OS=12.1" SCHEME="$IOS_FRAMEWORK_SCHEME"
+    - DESTINATION="platform=tvOS Simulator,name=Apple TV,OS=12.1" SCHEME="$TVOS_FRAMEWORK_SCHEME"
+    - DESTINATION="arch=x86_64" SCHEME="$MACOS_FRAMEWORK_SCHEME"
+
+script:
+  - set -o pipefail
+  - xcodebuild -version
+  - xcodebuild -workspace "$TRAVIS_XCODE_WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" clean build test | xcpretty
+  
+before_deploy:
+  - brew update
+  - brew outdated carthage || brew upgrade carthage
+  - carthage version
+  - carthage build --no-skip-current --platform ios,tvos,mac
+  - carthage archive KoinSwift
+deploy:
+  provider: releases
+  api_key:
+    secure: 
+  file: KoinSwift.framework.zip
+  skip_cleanup: true
+  on:
+    repo: InsertKoin/koin-swift
+    tags: true
