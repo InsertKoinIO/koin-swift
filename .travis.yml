@@ -10,12 +10,10 @@ env:
     - DESTINATION="platform=iOS Simulator,name=iPhone 6,OS=12.1" SCHEME="$IOS_FRAMEWORK_SCHEME"
     - DESTINATION="platform=tvOS Simulator,name=Apple TV,OS=12.1" SCHEME="$TVOS_FRAMEWORK_SCHEME"
     - DESTINATION="arch=x86_64" SCHEME="$MACOS_FRAMEWORK_SCHEME"
-
 script:
   - set -o pipefail
   - xcodebuild -version
   - xcodebuild -workspace "$TRAVIS_XCODE_WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" clean build test | xcpretty
-  
 before_deploy:
   - brew update
   - brew outdated carthage || brew upgrade carthage
@@ -25,9 +23,9 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: 
+    secure: MOHALhMbWh8Ng5ZFQfn/embALGu3YYKQ+337FFNwRyrIJ2j0vaakX16QVyMSDrFikJ/a4bf7HgOTy4+HNXlU4drdR4gjobg5QribkZWWodFfi5A0aYsaN0KtSMdx5fDAvs+BBNHoWdYn4j6fJFj6wFEoJHyF1X5+sfCV9dq6Vi8UBWBzq/Oxs3Xd6RU+0HgPEq/upm6o4BoQa5hx/3VWteiFd8wl5whbpEWqaHe/jG4MdebmfqYz3szd2IoFiArEkUewUwwhKaekiXYUhVPCF3YKoJnSYBBy9cH0bNf0Sn70XmWwq382N1kfrCRIAwjT/Y/NZ/YjlAuBK91Uq7FiQ6JJo65IuvXwVkbdA4IdzfDx2isvoW+GFK7w12ANUorFpF6qAwRtSebnJ3w7hEqm3DvtchjNbiBrh66UzlHrvHIl6Uehtk6hSIRN93E7Zw0elURFTSehnqZ6VsLjgQ+4jshdyMJlTM3hzmMQtVP52YgwiuRriPMzIbh48L0e8NunvF7ZsZM6LHb14fae6xwbkijZDVdTXOqfNnHjXG5XreSDmWgUqWZVYiDEM99Nes+wLc6hmnEzj6kao0gc+mMeq8kORrQ/nOn7bvvaDI1zSMGTH3Kh1XmYab+zfepI5kgaRehgRpOe1pqCEqvLreLZbtl/yJMFsC/pBbaFv/nMlOA=
   file: KoinSwift.framework.zip
   skip_cleanup: true
   on:
-    repo: InsertKoin/koin-swift
+    repo: InsertKoinIO/koin-swift
     tags: true
