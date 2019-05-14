@@ -8,7 +8,7 @@ env:
     - MACOS_FRAMEWORK_SCHEME="KoinSwift macOS"
   matrix:
     - DESTINATION="platform=iOS Simulator,name=iPhone 6,OS=12.1" SCHEME="$IOS_FRAMEWORK_SCHEME"
-    - DESTINATION="platform=tvOS Simulator,name=Apple TV,OS=12.1" SCHEME="$TVOS_FRAMEWORK_SCHEME"
+    # - DESTINATION="platform=tvOS Simulator,name=Apple TV,OS=12.1" SCHEME="$TVOS_FRAMEWORK_SCHEME"
     - DESTINATION="arch=x86_64" SCHEME="$MACOS_FRAMEWORK_SCHEME"
 script:
   - set -o pipefail
