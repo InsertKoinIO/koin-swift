@@ -6,42 +6,6 @@
 	objectVersion = 50;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		A3D0F21F227852E700DB6073 /* package iOS */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = A3D0F220227852E700DB6073 /* Build configuration list for PBXAggregateTarget "package iOS" */;
-			buildPhases = (
-				A3D0F223227852F500DB6073 /* Make Universal Library */,
-			);
-			dependencies = (
-			);
-			name = "package iOS";
-			productName = KoinSwift;
-		};
-		A3D0F2242278536900DB6073 /* package macOS */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = A3D0F2262278536900DB6073 /* Build configuration list for PBXAggregateTarget "package macOS" */;
-			buildPhases = (
-				A3D0F2252278536900DB6073 /* Make Universal Library */,
-			);
-			dependencies = (
-			);
-			name = "package macOS";
-			productName = KoinSwift;
-		};
-		A3D0F24822786FD900DB6073 /* package tvOS */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = A3D0F24A22786FD900DB6073 /* Build configuration list for PBXAggregateTarget "package tvOS" */;
-			buildPhases = (
-				A3D0F24922786FD900DB6073 /* Make Universal Library */,
-			);
-			dependencies = (
-			);
-			name = "package tvOS";
-			productName = KoinSwift;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		A3D0F19422784EE500DB6073 /* KoinSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D0F18A22784EE500DB6073 /* KoinSwift.framework */; };
 		A3D0F19B22784EE500DB6073 /* KoinSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = A3D0F18D22784EE500DB6073 /* KoinSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -546,9 +510,6 @@
 					A3D0F1AE22784F0400DB6073 = {
 						CreatedOnToolsVersion = 10.1;
 					};
-					A3D0F21F227852E700DB6073 = {
-						CreatedOnToolsVersion = 10.1;
-					};
 					A3D0F23022786FA300DB6073 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -575,9 +536,6 @@
 				A3D0F19222784EE500DB6073 /* KoinSwift iOS Tests */,
 				A3D0F23822786FA300DB6073 /* KoinSwift tvOS Tests */,
 				A3D0F1AE22784F0400DB6073 /* KoinSwift macOS Tests */,
-				A3D0F21F227852E700DB6073 /* package iOS */,
-				A3D0F24822786FD900DB6073 /* package tvOS */,
-				A3D0F2242278536900DB6073 /* package macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -681,60 +639,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		A3D0F223227852F500DB6073 /* Make Universal Library */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Make Universal Library";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\n# Step 1: Define Macros\nRELEASE_TYPE=\"\"\nFRAMEWORK_VERSION=\"NOTRIAL_VERSION\"\n\n# Step 2: Define OS and directories\nUNIVERSAL_TARGET=\"iOS\"\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal-${UNIVERSAL_TARGET}\nUNIVERSAL_FRAMEWORKFOLDER=${PROJECT_NAME}${RELEASE_TYPE}/${UNIVERSAL_TARGET}\nDEVICE_OS=\"iphoneos\"\nDEVICE_SIMULATOR=\"iphonesimulator\"\n\n# Step 3: Make sure the output directories exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\nmkdir -p \"${UNIVERSAL_FRAMEWORKFOLDER}\"\n\n# Step 4: Build Device and Simulator versions\n# See: https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html\nxcodebuild -target \"${PROJECT_NAME} ${UNIVERSAL_TARGET}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk ${DEVICE_OS}  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" OTHER_SWIFT_FLAGS=\"-D ${FRAMEWORK_VERSION}\" clean build\nxcodebuild -target \"${PROJECT_NAME} ${UNIVERSAL_TARGET}\" VALID_ARCHS=\"x86_64 i386\" -configuration ${CONFIGURATION} -sdk ${DEVICE_SIMULATOR} ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" OTHER_SWIFT_FLAGS=\"-D ${FRAMEWORK_VERSION}\" clean build\n\n# Step 5: Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-${DEVICE_OS}/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 6: Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-${DEVICE_SIMULATOR}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n\n# Step 7: Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-${DEVICE_SIMULATOR}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-${DEVICE_OS}/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\n# Step 8: Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${UNIVERSAL_FRAMEWORKFOLDER}/\"\n\n# Step 9: Convenience step to open the project's directory in Finder\n#open \"${UNIVERSAL_FRAMEWORKFOLDER}/\"\n\n# Step 10: Testing\n#open \"${UNIVERSAL_OUTPUTFOLDER}\"\n";
-		};
-		A3D0F2252278536900DB6073 /* Make Universal Library */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Make Universal Library";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\n# Define Macros\nRELEASE_TYPE=\"\"\nFRAMEWORK_VERSION=\"NOTRIAL_VERSION\"\n\nUNIVERSAL_TARGET=\"macOS\"\nDEVICE_OS=\"macosx\"\nUNIVERSAL_FRAMEWORKFOLDER=${PROJECT_NAME}${RELEASE_TYPE}/${UNIVERSAL_TARGET}\n\n# Make sure the output directories exists\nmkdir -p \"${UNIVERSAL_FRAMEWORKFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\n# See: https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html\nxcodebuild -target \"${PROJECT_NAME} ${UNIVERSAL_TARGET}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk ${DEVICE_OS}  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" OTHER_SWIFT_FLAGS=\"-D ${FRAMEWORK_VERSION}\" clean build\n\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}/${PROJECT_NAME}.framework\" \"${UNIVERSAL_FRAMEWORKFOLDER}/\"\n\n# Step 3. Convenience step to open the project's directory in Finder\n# open \"${UNIVERSAL_FRAMEWORKFOLDER}/\"\n";
-		};
-		A3D0F24922786FD900DB6073 /* Make Universal Library */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Make Universal Library";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\n# Define Macros\nRELEASE_TYPE=\"\"\nFRAMEWORK_VERSION=\"NOTRIAL_VERSION\"\n\nUNIVERSAL_TARGET=\"tvOS\"\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal-${UNIVERSAL_TARGET}\nUNIVERSAL_FRAMEWORKFOLDER=${PROJECT_NAME}${RELEASE_TYPE}/${UNIVERSAL_TARGET}\nDEVICE_OS=\"appletvos\"\nDEVICE_SIMULATOR=\"appletvsimulator\"\n\n# Make sure the output directories exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\nmkdir -p \"${UNIVERSAL_FRAMEWORKFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\n# See: https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html\nxcodebuild -target \"${PROJECT_NAME} ${UNIVERSAL_TARGET}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk ${DEVICE_OS}  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" OTHER_SWIFT_FLAGS=\"-D ${FRAMEWORK_VERSION}\" clean build\nxcodebuild -target \"${PROJECT_NAME} ${UNIVERSAL_TARGET}\" VALID_ARCHS=\"x86_64 i386\" -configuration ${CONFIGURATION} -sdk ${DEVICE_SIMULATOR} ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" OTHER_SWIFT_FLAGS=\"-D ${FRAMEWORK_VERSION}\" clean build\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-${DEVICE_OS}/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-${DEVICE_SIMULATOR}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-${DEVICE_SIMULATOR}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-${DEVICE_OS}/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\n# Step 5. Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${UNIVERSAL_FRAMEWORKFOLDER}/\"\n\n# Step 6. Convenience step to open the project's directory in Finder\n# open \"${UNIVERSAL_FRAMEWORKFOLDER}/\"\n\n# KKM - Testing\n# open \"${UNIVERSAL_OUTPUTFOLDER}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1455,38 +1359,6 @@
 			};
 			name = Release;
 		};
-		A3D0F221227852E700DB6073 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		A3D0F222227852E700DB6073 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		A3D0F2272278536900DB6073 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		A3D0F2282278536900DB6073 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		A3D0F24322786FA300DB6073 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1779,22 +1651,6 @@
 			};
 			name = Release;
 		};
-		A3D0F24B22786FD900DB6073 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		A3D0F24C22786FD900DB6073 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1843,24 +1699,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A3D0F220227852E700DB6073 /* Build configuration list for PBXAggregateTarget "package iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A3D0F221227852E700DB6073 /* Debug */,
-				A3D0F222227852E700DB6073 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A3D0F2262278536900DB6073 /* Build configuration list for PBXAggregateTarget "package macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A3D0F2272278536900DB6073 /* Debug */,
-				A3D0F2282278536900DB6073 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		A3D0F24222786FA300DB6073 /* Build configuration list for PBXNativeTarget "KoinSwift tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1875,15 +1713,6 @@
 			buildConfigurations = (
 				A3D0F24622786FA300DB6073 /* Debug */,
 				A3D0F24722786FA300DB6073 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A3D0F24A22786FD900DB6073 /* Build configuration list for PBXAggregateTarget "package tvOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A3D0F24B22786FD900DB6073 /* Debug */,
-				A3D0F24C22786FD900DB6073 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
