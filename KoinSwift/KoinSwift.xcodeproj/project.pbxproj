@@ -760,6 +760,7 @@
 		A3D0F18322784E9000DB6073 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_VERSION = 0.1;
 				PRODUCT_NAME = KoinSwift;
 			};
 			name = Debug;
@@ -767,6 +768,7 @@
 		A3D0F18422784E9000DB6073 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_VERSION = 0.1;
 				PRODUCT_NAME = KoinSwift;
 			};
 			name = Release;
