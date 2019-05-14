@@ -9,12 +9,9 @@
 import Foundation
 
 public class KoinConfig {
-    
     var modules = [Module]()
-    
     public func modules(_ modules: Module...) {
         self.modules += modules
     }
-    
     init() {}
 }

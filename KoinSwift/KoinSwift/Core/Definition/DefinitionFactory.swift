@@ -9,14 +9,18 @@
 import Foundation
 
 func createSingleton<T>(qualifier: String?, definition: @escaping Definition<T>) -> BeanDefinition<T> {
-    return createDefinition(qualifier: qualifier, definition: definition, kind: Kind.Single)
+    return createDefinition(qualifier: qualifier, definition: definition, kind: Kind.single)
 }
 
 func createFactory<T>(qualifier: String?, definition: @escaping Definition<T>) -> BeanDefinition<T> {
-    return createDefinition(qualifier: qualifier, definition: definition, kind: Kind.Factory)
+    return createDefinition(qualifier: qualifier, definition: definition, kind: Kind.factory)
 }
 
-private func createDefinition<T>(qualifier: String?, definition: @escaping Definition<T>, kind: Kind = Kind.Single) -> BeanDefinition<T> {
-    let beanDefinition : BeanDefinition<T> = BeanDefinition(definition: definition, qualifier: qualifier, kind: kind)
+private func createDefinition<T>(
+    qualifier: String?,
+    definition: @escaping Definition<T>,
+    kind: Kind = Kind.single
+) -> BeanDefinition<T> {
+    let beanDefinition: BeanDefinition<T> = BeanDefinition(definition: definition, qualifier: qualifier, kind: kind)
     return beanDefinition
 }

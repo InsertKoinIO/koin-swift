@@ -18,7 +18,7 @@ public func registerKoinModule(_ modules: Module...) throws {
     try modules.forEach({ module throws in
         try module.definitions.forEach({ definition throws in
             guard let koin = GlobalContext.shared.app else {
-                throw KoinErrors.NotInitialized
+                throw KoinErrors.notInitialized
             }
             try koin.insert(definition: definition)
         })
@@ -27,7 +27,7 @@ public func registerKoinModule(_ modules: Module...) throws {
 
 public func inject<T>(withQualifier: Qualifier? = nil) throws -> T {
     guard let koin = GlobalContext.shared.app else {
-        throw KoinErrors.NotInitialized
+        throw KoinErrors.notInitialized
     }
     return try koin.get(withQualifier: withQualifier)
 }
@@ -39,5 +39,3 @@ public func startKoin(_ configure: (KoinConfig) -> Void) throws {
     try koin.apply(with: koinConfig)
     try GlobalContext.shared.start(koin: koin)
 }
-
-

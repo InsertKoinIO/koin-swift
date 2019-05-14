@@ -19,19 +19,21 @@ class BeanDefinitionTests: XCTestCase {
         let def1 = BeanDefinition<String>(
             definition: { _ throws in "def1"},
             qualifier: nil,
-            kind: .Single
+            kind: .single
         )
-        
-        let value1 = try! def1.resolveInstance(koin: koin)
-        let value2 = try! def1.resolveInstance(koin: koin)
-        
-        XCTAssertEqual(value1, value2, "\(value1) != \(value2)")
+        do {
+            let value1 = try def1.resolveInstance(koin: koin)
+            let value2 = try def1.resolveInstance(koin: koin)
+            XCTAssertEqual(value1, value2, "\(value1) != \(value2)")
+        } catch {
+            XCTAssertTrue(false, "Exception throws: \(error)" )
+        }
     }
 
 }
 
 class MockKoin: KoinInjectable {
     func get<T>(qualifier: Qualifier? = nil) throws -> T {
-        throw KoinErrors.NotImplementedYet
+        throw KoinErrors.notImplementedYet
     }
 }

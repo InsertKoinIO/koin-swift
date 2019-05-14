@@ -9,12 +9,10 @@
 import Foundation
 
 public extension Module {
-    
     public func factory<T>(qualifier: String? = nil, _ definition: @escaping Definition<T>) {
         let beanDefinition = createFactory(qualifier: qualifier, definition: definition)
         definitions.append(AnyHashable(beanDefinition))
     }
-    
     public func single<T>(qualifier: String? = nil, _ definition: @escaping Definition<T>) {
         let beanDefinition = createSingleton(qualifier: qualifier, definition: definition)
         definitions.append(AnyHashable(beanDefinition))

@@ -9,26 +9,25 @@
 import Foundation
 
 class BeanRegistry {
-
     var definitions: Set<AnyHashable> = []
-    
     func insertDefinition(definition: AnyHashable) throws {
         let (state, _) = definitions.insert(definition)
         guard state else {
-            throw KoinErrors.AlreadyDefined
+            throw KoinErrors.alreadyDefined
         }
     }
-    
     func retrieveDefinition<T>(withQualifier: Qualifier? = nil) throws -> BeanDefinition<T> {
-        guard let definition = definitions.first(where: { (definition) -> Bool in
-            guard let base = definition.base as? BeanDefinition<T> else {
-                return false
+        let base = definitions
+            .map { $0.base }
+            .first { (base) -> Bool in
+                guard let definition = base as? BeanDefinition<T> else {
+                    return false
+                }
+                return withQualifier == nil || definition.qualifier == withQualifier
             }
-            return withQualifier == nil || base.qualifier == withQualifier
-            
-        }) else {
-            throw KoinErrors.DefinitionNotFound
+        guard let definition = base as? BeanDefinition<T> else {
+            throw KoinErrors.definitionNotFound
         }
-        return definition.base as! BeanDefinition<T>
+        return definition
     }
 }

@@ -9,6 +9,6 @@
 import Foundation
 
 enum Kind {
-    case Single
-    case Factory
+    case single
+    case factory
 }

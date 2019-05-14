@@ -8,10 +8,10 @@
 
 import Foundation
 
-public enum KoinErrors : Error {
-    case NotImplementedYet
-    case DefinitionNotFound
-    case AlreadyDefined
-    case AlreadyInitialized
-    case NotInitialized
+public enum KoinErrors: Error {
+    case notImplementedYet
+    case definitionNotFound
+    case alreadyDefined
+    case alreadyInitialized
+    case notInitialized
 }
