@@ -1,0 +1,36 @@
+
+## Build generated
+build/
+DerivedData/
+
+## Various Settings
+xcuserdata/
+*.pbxuser
+!default.pbxuser
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+
+## Breakpoints
+Breakpoints_v2.xcbkptlist
+
+## Other
+*.xccheckout
+*.xcuserdatad
+UserInterfaceState.xcuserstate
+.DS_Store
+##*.xcworkspace
+##!default.xcworkspace
+##!Pulsar.xcworkspace/xcshareddata
+##!Pulsar.xcodeproj/xcshareddata/xcschemes/*
+!*.xcschemes
+
+## Carthage Folder
+Carthage/
+Cartfile.resolved
+
+## Fastlane folder
+fastlane/screenshots/
+fastlane/report.xml
+
