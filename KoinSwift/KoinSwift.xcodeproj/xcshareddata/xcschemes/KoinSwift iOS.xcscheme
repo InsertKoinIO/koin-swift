@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A3D0F19222784EE500DB6073"
-               BuildableName = "KoinSwift IOS Tests.xctest"
-               BlueprintName = "KoinSwift IOS Tests"
+               BuildableName = "KoinSwift iOS Tests.xctest"
+               BlueprintName = "KoinSwift iOS Tests"
                ReferencedContainer = "container:KoinSwift.xcodeproj">
             </BuildableReference>
          </TestableReference>
