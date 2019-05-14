@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode10.2
+xcode_workspace: KoinSwift.xcworkspace
+xcode_scheme: KoinSwift iOS
+xcode_destination: platform=iOS Simulator,name=iPhone 6,OS=12.1
